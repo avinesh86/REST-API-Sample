@@ -18,7 +18,7 @@ import org.avinesh.webservices.messenger.service.MessageService;
 @Path("/messages")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class MessengerResource {
+public class MessageResource {
 	
 	MessageService messageService = new MessageService();
 	

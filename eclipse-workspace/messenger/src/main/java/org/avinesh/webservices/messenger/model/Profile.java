@@ -11,7 +11,6 @@ public class Profile {
 	private String profileName;
 	private String firstName;
 	private String lastName;
-	private Date created;
 	
 	public Profile(){}
 	
@@ -29,17 +28,11 @@ public class Profile {
 		this.id = id;
 	}
 	
-	public String getProfile() {
+	public String getFirstName() {
 		return firstName;
-	}
-	public void setMessage(String message) {
-		this.firstName = message;
-	}
-	public Date getCreated() {
-		return created;
-	}
-	public void setCreated(Date created) {
-		this.created = created;
+	}	
+	public String setFirstName(String firstName) {
+		return firstName;
 	}
 
 	public String getProfileName() {
