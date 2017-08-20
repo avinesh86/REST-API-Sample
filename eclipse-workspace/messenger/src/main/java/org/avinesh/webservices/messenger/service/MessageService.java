@@ -1,6 +1,7 @@
 package org.avinesh.webservices.messenger.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,26 @@ public class MessageService {
 		messages.put(1L, new Message(1L, "Hello world!", "Avinesh"));
 		messages.put(2L, new Message(2L, "Hello JErsey!", "Avinesh"));
 		
+	}
+	
+	public List<Message> getMessagesForYear(int year){
+		List<Message> messagesForYear = new ArrayList<>();
+		Calendar cal = Calendar.getInstance();
+		for(Message message: messages.values()){
+			cal.setTime(message.getCreated());
+			if(cal.get(cal.YEAR) == year) {
+				messagesForYear.add(message);
+			}
+		}
+		return messagesForYear;
+	}
+	
+	public List<Message> getMessagesPaginated(int start, int size){
+		List<Message> messagesPaginated = new ArrayList<Message>(messages.values());
+		if((start + size) > messages.size())
+			return new ArrayList<Message>();
+		
+		return messagesPaginated.subList(start, start + size);
 	}
 	
 	public List<Message> getAllMessages(){
